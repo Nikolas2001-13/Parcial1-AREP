@@ -1,7 +1,6 @@
 package edu.escuelaing.arep.parcial.clima;
 
 import static spark.Spark.*;
-import edu.escuelaing.arep.heroku.Operations;
 public class SparkWebApp {
 
     public static void main(String[] args) {
