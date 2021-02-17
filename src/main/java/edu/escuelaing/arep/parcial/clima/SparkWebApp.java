@@ -3,18 +3,18 @@ package edu.escuelaing.arep.parcial.clima;
 import static spark.Spark.*;
 public class SparkWebApp {
 
+    private static ApiWeather apiWeather;
+
     public static void main(String[] args) {
+        Gson gson = new Gson();
         port(getPort());
-        /*
-        staticFiles.location("/public");
-        post("/calculate", (request, response) -> {
-
-            Operations operations = new Operations();
-            operations.readJSON(request.body());
-
-            return "{\"mean\":" + operations.mean() + ", \"stdDev\":" + operations.stdDev() + "}";
+        apiWeather = new ApiWeather();
+        get("/clima", (request, response) -> {
+            String city = req.queryParams("ciudad");
+            String json = "";
+            json = getWeather(city);
+            return gson.toJson(json);
         });
-        */
     }
     static int getPort() {
         if (System.getenv("PORT") != null) {

@@ -31,8 +31,11 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
-    {
-        assertTrue( true );
+    public void testCorrectWeather() {
+        ApiWeather apiWeather = new ApiWeather();
+        String clima = apiWeather.getWeather("London");
+        JSONParser parser = new JSONParser();
+        JSONObject json = (JSONObject) parser.parse(clima);
+        assertEquals(json.get("name"),"London");
     }
 }
