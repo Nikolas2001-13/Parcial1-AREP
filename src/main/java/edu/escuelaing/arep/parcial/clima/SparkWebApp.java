@@ -5,6 +5,7 @@ public class SparkWebApp {
 
     public static void main(String[] args) {
         port(getPort());
+        /*
         staticFiles.location("/public");
         post("/calculate", (request, response) -> {
 
@@ -13,6 +14,7 @@ public class SparkWebApp {
 
             return "{\"mean\":" + operations.mean() + ", \"stdDev\":" + operations.stdDev() + "}";
         });
+        */
     }
     static int getPort() {
         if (System.getenv("PORT") != null) {
