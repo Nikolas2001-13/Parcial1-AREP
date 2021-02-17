@@ -10,7 +10,7 @@ public class SparkWebApp {
         Gson gson = new Gson();
         port(getPort());
         get("/clima", (request, response) -> {
-            String city = request.queryParams("ciudad");
+            String city = request.queryParams("lugar");
             String json = apiWeather.getWeather(city);
             return gson.toJson(json);
         });
