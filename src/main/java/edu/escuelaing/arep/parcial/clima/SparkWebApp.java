@@ -1,18 +1,17 @@
 package edu.escuelaing.arep.parcial.clima;
 
 import static spark.Spark.*;
+import com.google.gson.Gson;
+
 public class SparkWebApp {
 
-    private static ApiWeather apiWeather;
-
     public static void main(String[] args) {
+        ApiWeather apiWeather = new ApiWeather();
         Gson gson = new Gson();
         port(getPort());
-        apiWeather = new ApiWeather();
         get("/clima", (request, response) -> {
-            String city = req.queryParams("ciudad");
-            String json = "";
-            json = getWeather(city);
+            String city = request.queryParams("ciudad");
+            String json = apiWeather.getWeather(city);
             return gson.toJson(json);
         });
     }

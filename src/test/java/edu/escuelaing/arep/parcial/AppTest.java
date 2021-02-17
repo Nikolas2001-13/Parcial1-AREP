@@ -20,22 +20,5 @@ public class AppTest
         super( testName );
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testCorrectWeather() {
-        ApiWeather apiWeather = new ApiWeather();
-        String clima = apiWeather.getWeather("London");
-        JSONParser parser = new JSONParser();
-        JSONObject json = (JSONObject) parser.parse(clima);
-        assertEquals(json.get("name"),"London");
-    }
 }
